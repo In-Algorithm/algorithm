@@ -35,9 +35,9 @@ int GetKeyDown()
  {
  	GotoXY(0, dinoY);
  	static bool legFlag = true;
- 	printf("		$$$$$$$ \n");
- 	printf("	   $$ $$$$$$\n");
- 	printf("	   $$$$$$$$$\n");
+ 	printf("        $$$$$$$ \n");
+ 	printf("       $$ $$$$$$\n");
+ 	printf("       $$$$$$$$$\n");
  	printf("$      $$$      \n");
  	printf("$$     $$$$$$$  \n");
  	printf("$$$   $$$$$     \n");
