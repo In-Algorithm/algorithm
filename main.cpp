@@ -3,7 +3,8 @@
 using namespace std;
 
 #define PACKET_SIZE 1024
-SOCKET skt, client_sock;
+
+SOCKET skt;
 
 int main() {
 	WSADATA wsa;
@@ -14,17 +15,12 @@ int main() {
 	SOCKADDR_IN addr = {};
 	addr.sin_family = AF_INET;
 	addr.sin_port = htons(4444);
-	addr.sin_addr.s_addr = htonl(INADDR_ANY);
+	addr.sin_addr.s_addr = inet_addr("127.0.0.1");
 
-	bind(skt, (SOCKADDR*)&addr, sizeof(addr));
-	listen(skt, SOMAXCONN);
+	while (1) {
+		if (!connect(skt, (SOCKADDR*)&addr, sizeof(addr))) break;
+	}
 
-	SOCKADDR_IN client = {};
-	int client_size = sizeof(client);
-	ZeroMemory(&client, client_size);
-	client_sock = accept(skt, (SOCKADDR*)&client, &client_size);
-
-	closesocket(client_sock);
 	closesocket(skt);
 	WSACleanup();
 }
