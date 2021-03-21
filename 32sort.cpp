@@ -8,6 +8,10 @@ int main (){
 	vector<int> a(n);
 	cin >> n;
 	for(int i = 0; i<n; i++){
+		cin >> a[i];
+	}
+	
+	for(int i = 0; i<n; i++){
 		idx = i;
 		for(int j=i+1; j<n; j++){
 			if(a[j] <a[idx]) idx = j;
@@ -17,7 +21,7 @@ int main (){
 		a[idx] = tmp;
 	}
 	for(int i =0; i<n; i++){
-		cout << a[i];
+		cout << a[i] << " ";
 	}
 	return 0;
 }
