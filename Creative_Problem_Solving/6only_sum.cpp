@@ -3,23 +3,20 @@
 using namespace std;
 
 int main() {
-	char a[51];
-	int res = 0, cnt= 0, i;
-	for(i = 0; a[i] !='\0'; i++) {
-		cin >> a[i];
-	}
-	for(i = 0; a[i] !='\0'; i++) {
+	char a[100];
+	int res = 0, cnt= 0;
+	cin >> a;
+	
+	for(int i = 0; a[i] !='\0'; i++) {
 		if(a[i]-'0' <= 9 && a[i]-'0' >=0) {
 			res = res*10 +(a[i]-'0');	
 		}
 	}
 	
 	cout << res << endl;
-	for(i = 1; i <= res; i++){
+	for(int i = 1; i <= res; i++){
 		if(res%i == 0) cnt++;
 	}
 	cout << cnt << endl;
 	return 0;
 }
-
-//왜 int i 로 (지역변수?) 로 선언하면 안될까요? 
